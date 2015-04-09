@@ -3,7 +3,7 @@
 // by applying minimal changes.
 //
 // For example:
-// 
+//
 //	apipe gofmt
 //
 // will alter only the pieces of source code that
@@ -11,9 +11,9 @@
 package main
 
 import (
+	"9fans.net/go/acme"
 	"bufio"
 	"bytes"
-	"code.google.com/p/goplan9/plan9/acme"
 	"fmt"
 	"io"
 	"io/ioutil"
@@ -48,6 +48,8 @@ func Main() error {
 	if err := copyBody(bodyFile, win); err != nil {
 		return err
 	}
+	// Seems that diff complains if file don't ends with a \n
+	bodyFile.Write([]byte("\n"))
 	bodyFile.Seek(0, 0)
 	pcmd := exec.Command(cmdArgs[0], cmdArgs[1:]...)
 	pcmd.Stdin = bodyFile
