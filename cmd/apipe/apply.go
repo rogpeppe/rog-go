@@ -11,7 +11,6 @@
 package main
 
 import (
-	"9fans.net/go/acme"
 	"bufio"
 	"bytes"
 	"fmt"
@@ -21,7 +20,10 @@ import (
 	"os/exec"
 	"regexp"
 	"strconv"
+	"strings"
 	"unicode/utf8"
+
+	"9fans.net/go/acme"
 )
 
 func main() {
@@ -53,7 +55,10 @@ func Main() error {
 	bodyFile.Seek(0, 0)
 	pcmd := exec.Command(cmdArgs[0], cmdArgs[1:]...)
 	pcmd.Stdin = bodyFile
-	pcmd.Stderr = os.Stderr
+
+	// test if buffer has errors
+	var testError bytes.Buffer
+	pcmd.Stderr = &testError
 
 	cmd := exec.Command("diff", bodyFile.Name(), "-")
 	cmd.Stdin, err = pcmd.StdoutPipe()
@@ -77,6 +82,18 @@ func Main() error {
 	//		return err
 	//	}
 	//	defer win.Write("ctl", []byte("mark"))
+
+	// If command output errors, just write errors to stderr, replacing
+	// stdin for filename ( for plumber ) and do nothing to current win.
+	// this way when apipe goimports it don't celan current win.
+	if err := pcmd.Wait(); err != nil {
+		errstr := testError.String()
+		fname := winFileName(win)
+		out := strings.Replace(errstr, "<standard input>", fname, -1)
+		fmt.Fprint(os.Stderr, out)
+		return fmt.Errorf("%s", err)
+	}
+
 	err = apply(diffOut, func(addr string, data []byte) error {
 		if _, err := win.Write("addr", []byte(addr)); err != nil {
 			return fmt.Errorf("cannot set address %q: %v", addr, err)
@@ -90,6 +107,14 @@ func Main() error {
 		return err
 	}
 	return nil
+}
+
+func winFileName(win *acme.Win) string {
+	bb := make([]byte, 256)
+	win.Read("tag", bb)
+	s := strings.Split(string(bb), " ")[0]
+	pwd, _ := os.Getwd()
+	return strings.Replace(s, pwd+"/", "", -1)
 }
 
 func writeData(win *acme.Win, data []byte) error {
