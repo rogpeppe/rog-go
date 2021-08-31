@@ -160,13 +160,16 @@ func parseStacks(r io.Reader) ([]*Stack, error) {
 }
 
 func parseArgs(argList string) []uint64 {
-	argList = strings.TrimSuffix(argList, ", ...")
+	argList = strings.TrimSuffix(argList, "...")
+	argList = strings.TrimSuffix(argList, ", ")
 	if argList == "" {
 		return nil
 	}
 	parts := strings.Split(argList, ", ")
 	args := make([]uint64, len(parts))
 	for i, a := range parts {
+		// TODO we might be able to do better with structured args.
+		a = strings.Trim(a, "{}")
 		n, err := strconv.ParseUint(a, 0, 64)
 		if err != nil {
 			panic(fmt.Errorf("cannot parse %q (from %q)", a, argList))
