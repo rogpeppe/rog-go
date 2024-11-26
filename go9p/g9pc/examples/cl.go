@@ -4,9 +4,9 @@ package main
 
 import (
 	"bufio"
-	"code.google.com/p/rog-go/go9p/g9p"
-	"code.google.com/p/rog-go/go9p/g9pc"
-	"code.google.com/p/rog-go/go9p/g9plog"
+	"github.com/rogpeppe/rog-go/go9p/g9p"
+	"github.com/rogpeppe/rog-go/go9p/g9pc"
+	"github.com/rogpeppe/rog-go/go9p/g9plog"
 	"flag"
 	"fmt"
 	"io"

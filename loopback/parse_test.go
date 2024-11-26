@@ -17,7 +17,7 @@ func TestParseNoOptions(t *testing.T) {
 		t.Fatalf("some options were set; got in: %v, out: %v", in, out)
 	}
 	if actual != "tcp" {
-		t.Fatal("actual net name; expect %q got %q", "tcp", actual)
+		t.Fatalf("actual net name; expect %q got %q", "tcp", actual)
 	}
 }
 

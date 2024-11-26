@@ -9,8 +9,8 @@ package printer
 
 import (
 	"bytes"
-	"code.google.com/p/rog-go/exp/go/ast"
-	"code.google.com/p/rog-go/exp/go/parser"
+	"github.com/rogpeppe/rog-go/exp/go/ast"
+	"github.com/rogpeppe/rog-go/exp/go/parser"
 	"io"
 	"io/ioutil"
 	"log"

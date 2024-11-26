@@ -1,6 +1,6 @@
 package audio
 
-import "code.google.com/p/rog-go/exp/abc"
+import github.com/rogpeppe/rog-go/exp/abc"
 
 type MultiplierWidget struct {
 	Format

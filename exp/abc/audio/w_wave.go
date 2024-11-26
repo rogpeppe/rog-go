@@ -3,7 +3,7 @@ package audio
 import (
 	"math"
 	"strconv"
-	"code.google.com/p/rog-go/exp/abc"
+	"github.com/rogpeppe/rog-go/exp/abc"
 )
 
 type waveWidget struct {

@@ -3,7 +3,7 @@
 package ncrpc
 
 import (
-	"code.google.com/p/rog-go/ncnet"
+	"github.com/rogpeppe/rog-go/ncnet"
 	"errors"
 	"fmt"
 	"io"

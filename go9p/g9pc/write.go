@@ -4,7 +4,7 @@
 
 package g9pc
 
-import "code.google.com/p/rog-go/go9p/g9p"
+import github.com/rogpeppe/rog-go/go9p/g9p"
 
 // Write up to len(data) bytes starting from offset. Returns the
 // number of bytes written, or an Error.

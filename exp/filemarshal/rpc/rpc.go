@@ -1,7 +1,7 @@
 package gobrpc
 
 import (
-	"code.google.com/p/rog-go/exp/filemarshal"
+	"github.com/rogpeppe/rog-go/exp/filemarshal"
 	"io"
 	"net/rpc"
 )

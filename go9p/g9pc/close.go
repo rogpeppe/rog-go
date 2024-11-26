@@ -4,7 +4,7 @@
 
 package g9pc
 
-import "code.google.com/p/rog-go/go9p/g9p"
+import github.com/rogpeppe/rog-go/go9p/g9p"
 
 // Clunks a fid. Returns nil if successful.
 func (clnt *Client) Clunk(fid *Fid) (err error) {

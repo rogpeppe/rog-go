@@ -1,7 +1,7 @@
 package stquery_test
 
 import (
-	"code.google.com/p/rog-go/exp/stquery"
+	"github.com/rogpeppe/rog-go/exp/stquery"
 	"fmt"
 	"reflect"
 	"strconv"

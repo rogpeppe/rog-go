@@ -1,7 +1,7 @@
 package g9plog
 
 import (
-	"code.google.com/p/rog-go/go9p/g9p"
+	"github.com/rogpeppe/rog-go/go9p/g9p"
 	"container/list"
 	"fmt"
 	"net/http"

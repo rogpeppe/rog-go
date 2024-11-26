@@ -128,7 +128,7 @@ func TestBandwidth(t *testing.T) {
 	expect := delay * time.Duration(packetSize*n)
 	got := t1.Sub(t0)
 	if abs(expect-got)*100/expect > 1 {
-		t.Error("wrong bandwidth; expected %dns; got %dns", expect, got)
+		t.Errorf("wrong bandwidth; expected %dns; got %dns", expect, got)
 	}
 }
 

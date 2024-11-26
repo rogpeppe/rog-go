@@ -1,7 +1,7 @@
 package audio
 
 import (
-	"code.google.com/p/rog-go/exp/abc"
+	"github.com/rogpeppe/rog-go/exp/abc"
 	"strconv"
 )
 

@@ -45,7 +45,7 @@ package looper
 //
 import "C"
 import (
-	"code.google.com/p/rog-go/exp/callback"
+	"github.com/rogpeppe/rog-go/exp/callback"
 	"sync"
 	"unsafe"
 )

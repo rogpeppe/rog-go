@@ -1,9 +1,9 @@
 package main
 
 import (
-	"code.google.com/p/rog-go/exp/go/ast"
-	"code.google.com/p/rog-go/exp/go/sym"
-	"code.google.com/p/rog-go/exp/go/types"
+	"github.com/rogpeppe/rog-go/exp/go/ast"
+	"github.com/rogpeppe/rog-go/exp/go/sym"
+	"github.com/rogpeppe/rog-go/exp/go/types"
 	"flag"
 	"fmt"
 	"log"

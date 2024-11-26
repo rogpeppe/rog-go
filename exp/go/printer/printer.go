@@ -7,8 +7,8 @@ package printer
 
 import (
 	"bytes"
-	"code.google.com/p/rog-go/exp/go/ast"
-	"code.google.com/p/rog-go/exp/go/token"
+	"github.com/rogpeppe/rog-go/exp/go/ast"
+	"github.com/rogpeppe/rog-go/exp/go/token"
 	"fmt"
 	"io"
 	"os"

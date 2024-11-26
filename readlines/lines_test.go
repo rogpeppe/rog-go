@@ -2,7 +2,7 @@ package readlines_test
 
 import (
 	"bufio"
-	"code.google.com/p/rog-go/readlines"
+	"github.com/rogpeppe/rog-go/readlines"
 	"fmt"
 	"io"
 	"reflect"

@@ -1,8 +1,8 @@
 package types
 
 import (
-	"code.google.com/p/rog-go/exp/go/ast"
-	"code.google.com/p/rog-go/exp/go/token"
+	"github.com/rogpeppe/rog-go/exp/go/ast"
+	"github.com/rogpeppe/rog-go/exp/go/token"
 )
 
 func declPos(name string, decl ast.Node) token.Pos {
